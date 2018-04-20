@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Hello"; ObjectID = "1Jx-XG-aD0"; */
+"1Jx-XG-aD0.text" = "Olá";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2vt-LO-Gte"; */
+"2vt-LO-Gte.normalTitle" = "Bot\ao";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "K1o-jj-04p"; */
+"K1o-jj-04p.text" = "Label";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "PSW-u6-xm0"; */
+"PSW-u6-xm0.text" = "Nome";
+
+/* Class = "UITextField"; placeholder = "Insert the name of place"; ObjectID = "Z6A-Su-1F1"; */
+"Z6A-Su-1F1.placeholder" = "Insira aqui o local";

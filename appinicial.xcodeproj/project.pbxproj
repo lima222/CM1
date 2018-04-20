@@ -12,6 +12,7 @@
 		8896BBAE20878199001F504F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8896BBAC20878199001F504F /* Main.storyboard */; };
 		8896BBB020878199001F504F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8896BBAF20878199001F504F /* Assets.xcassets */; };
 		8896BBB320878199001F504F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8896BBB120878199001F504F /* LaunchScreen.storyboard */; };
+		889ABBCA208A22D3006F94E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 889ABBCC208A22D3006F94E4 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		8896BBAF20878199001F504F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8896BBB220878199001F504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8896BBB420878199001F504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		889ABBC9208A2295006F94E4 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
+		889ABBCB208A22D3006F94E4 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		889ABBCD208A22D9006F94E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 				8896BBAF20878199001F504F /* Assets.xcassets */,
 				8896BBB120878199001F504F /* LaunchScreen.storyboard */,
 				8896BBB420878199001F504F /* Info.plist */,
+				889ABBCC208A22D3006F94E4 /* Localizable.strings */,
 			);
 			path = appinicial;
 			sourceTree = "<group>";
@@ -96,7 +101,7 @@
 				TargetAttributes = {
 					8896BBA420878198001F504F = {
 						CreatedOnToolsVersion = 8.3.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -124,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8896BBB320878199001F504F /* LaunchScreen.storyboard in Resources */,
+				889ABBCA208A22D3006F94E4 /* Localizable.strings in Resources */,
 				8896BBB020878199001F504F /* Assets.xcassets in Resources */,
 				8896BBAE20878199001F504F /* Main.storyboard in Resources */,
 			);
@@ -148,6 +154,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8896BBAD20878199001F504F /* Base */,
+				889ABBC9208A2295006F94E4 /* pt-PT */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -160,6 +167,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		889ABBCC208A22D3006F94E4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				889ABBCB208A22D3006F94E4 /* pt-PT */,
+				889ABBCD208A22D9006F94E4 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -167,6 +183,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -218,6 +235,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -262,10 +280,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = appinicial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ipvc.estg.appinicial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,10 +294,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = appinicial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ipvc.estg.appinicial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -301,6 +323,7 @@
 				8896BBB920878199001F504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
