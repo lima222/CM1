@@ -10,10 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var txt1: UITextField!
+    @IBOutlet var label1: UILabel!
+    
+    
+    //actions
+    @IBAction func clickButton1(_ sender: Any) {
+        label1.text = "Escreva na caixa de texto"
+    }
+    
+    
+    
+    //lifecicle
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSLog(NSLocalizedString("mainvc.title", comment: ""))
+        
     }
 
     
