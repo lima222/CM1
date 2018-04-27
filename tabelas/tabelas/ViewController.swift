@@ -20,10 +20,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
     //MARK: actions
     
+ 
     @IBAction func butActionValidar(_ sender: Any) {
         verifyChosen()
     }
-    
+   
     
     //MARK: ciclovida
     
@@ -43,14 +44,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         cell.textLabel?.text = array[indexPath.row]
         cell.detailTextLabel?.text = "info adicional"
         
-        if arrayB[indexPath.row]{
+        cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
+        
+       /* if arrayB[indexPath.row]{
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }else {
             cell.accessoryType = UITableViewCellAccessoryType.none
-        }
+        }*/
         
         return cell
     }
+    
+    
     
     //MARK: UITABLEVIEWDELEGATE
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -67,7 +72,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         return [editar, apagar]
     }
     
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        /*let alert = UIAlertController(title: "Informaçao", message: array[indexPath.row], preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Fechar", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)*/
+        
+        self.performSegue(withIdentifier: "segue1", sender: tableView)
+        
+        print(indexPath.row)
+    }
     
+    /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if arrayB[indexPath.row]{
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
@@ -77,7 +92,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             arrayB[indexPath.row] = true
         }
         
-    }
+    }*/
+    
+    
+    
     
     func verifyChosen(){
         print("-----")
