@@ -11,8 +11,9 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
-    var array = ["Lisboa", "Porto", "Braga", "Viana do Castelo", "Aveiro"]
-    var arrayB = [false, false, false, false, false]
+    var array = ["Lisboa", "Porto"]
+    var arrayB = [false, false]
+    var arrayEntites = [EntityCity]()
     
     //MARK: properties
     
@@ -31,6 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        createArrayCities()
     }
     
     //MARK: UITABLEVIEWDATASOURCE
@@ -40,11 +42,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        /*let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = array[indexPath.row]
         cell.detailTextLabel?.text = "info adicional"
         
-        cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
+        cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton*/
         
        /* if arrayB[indexPath.row]{
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
@@ -52,6 +54,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
             cell.accessoryType = UITableViewCellAccessoryType.none
         }*/
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyTableView
+        let ec: EntityCity = arrayEntites[indexPath.row]
+        cell.othertituo.text = ec.name
+        cell.labelSubTitulo.text = ec.country
+        cell.labelInfo.text = String(ec.habitantes)
+        cell.labelImag.image = UIImage(named: ec.imagem)
+       
         return cell
     }
     
@@ -98,7 +107,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         self.performSegue(withIdentifier: "segue1", sender: tableView)
     }
     
-    
+    private func createArrayCities() {
+        let c1: EntityCity = EntityCity()
+        c1.name = "Viana"
+        c1.country = "Portugal"
+        c1.habitantes = 2000
+        c1.imagem = "city"
+        arrayEntites.append(c1)
+        
+        
+        let c2: EntityCity = EntityCity()
+        c2.name = "Porto"
+        c2.country = "Portugal"
+        c2.habitantes = 3000
+        c2.imagem = "city"
+        arrayEntites.append(c2)
+    }
     
     
     func verifyChosen(){

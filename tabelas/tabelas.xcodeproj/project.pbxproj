@@ -13,6 +13,8 @@
 		889ABBE2208A3394006F94E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 889ABBE1208A3394006F94E4 /* Assets.xcassets */; };
 		889ABBE5208A3394006F94E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889ABBE3208A3394006F94E4 /* LaunchScreen.storyboard */; };
 		88E476EA20935CC4000E3BEC /* VCDetalhe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E476E920935CC4000E3BEC /* VCDetalhe.swift */; };
+		88FDFB5A209373730067C558 /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDFB59209373730067C558 /* MyTableView.swift */; };
+		88FDFB5E209375460067C558 /* EntityCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDFB5D209375460067C558 /* EntityCity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		889ABBE4208A3394006F94E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		889ABBE6208A3394006F94E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E476E920935CC4000E3BEC /* VCDetalhe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDetalhe.swift; sourceTree = "<group>"; };
+		88FDFB59209373730067C558 /* MyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
+		88FDFB5D209375460067C558 /* EntityCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityCity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				889ABBE3208A3394006F94E4 /* LaunchScreen.storyboard */,
 				889ABBE6208A3394006F94E4 /* Info.plist */,
 				88E476E920935CC4000E3BEC /* VCDetalhe.swift */,
+				88FDFB59209373730067C558 /* MyTableView.swift */,
+				88FDFB5D209375460067C558 /* EntityCity.swift */,
 			);
 			path = tabelas;
 			sourceTree = "<group>";
@@ -140,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				889ABBDD208A3394006F94E4 /* ViewController.swift in Sources */,
+				88FDFB5A209373730067C558 /* MyTableView.swift in Sources */,
 				88E476EA20935CC4000E3BEC /* VCDetalhe.swift in Sources */,
+				88FDFB5E209375460067C558 /* EntityCity.swift in Sources */,
 				889ABBDB208A3394006F94E4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
