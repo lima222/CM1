@@ -60,12 +60,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     //MARK: UITABLEVIEWDELEGATE
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editar = UITableViewRowAction(style: .default, title: "Editar"){action,index in
-            print("editar: " + String(index.row) + " " + self.array[index.row])
+            self.performSegue(withIdentifier: "segue1", sender: indexPath)
         }
         editar.backgroundColor = UIColor.blue
         
         let apagar = UITableViewRowAction(style: .default, title: "Apagar"){action,index in
-            print("apagar: " + String(index.row))
+            
         }
         apagar.backgroundColor = UIColor.red
         
@@ -94,6 +94,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         
     }*/
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "segue1", sender: tableView)
+    }
+    
     
     
     
@@ -110,6 +114,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let idx = sender as! IndexPath
+        if(segue.identifier == "segue1") {
+            
+            let vcdetalhe = (segue.destination as! VCDetalhe)
+            vcdetalhe.cidade = array[idx.row]
+        }
     }
     
     

@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0iO-Nd-WsA">
-                                <rect key="frame" x="0.0" y="72" width="375" height="600"/>
+                                <rect key="frame" x="0.0" y="27" width="375" height="640"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1516" y="106.59670164917542"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalhe-->
         <scene sceneID="E64-n5-qQ9">
             <objects>
-                <viewController id="LyK-jG-hgc" sceneMemberID="viewController">
+                <viewController id="LyK-jG-hgc" customClass="VCDetalhe" customModule="tabelas" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kJG-Zc-O4e"/>
                         <viewControllerLayoutGuide type="bottom" id="elh-5D-9BJ"/>
