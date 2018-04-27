@@ -47,9 +47,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lista de Cidades" id="1jj-Ns-etI">
-                        <barButtonItem key="rightBarButtonItem" title="Validar" id="Sje-Ul-VeU">
+                        <barButtonItem key="rightBarButtonItem" title="Novo" id="Sje-Ul-VeU">
                             <connections>
                                 <action selector="butActionValidar:" destination="BYZ-38-t0r" id="g9c-Hd-p1s"/>
+                                <segue destination="LyK-jG-hgc" kind="show" id="df1-R6-VUl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -72,12 +73,33 @@
                     <view key="view" contentMode="scaleToFill" id="Mjj-Oy-rAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JxI-MK-IDS">
+                                <rect key="frame" x="16" y="85" width="302" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Gravar" id="6XU-7J-o5b">
+                            <connections>
+                                <segue destination="PJS-sh-IBE" kind="unwind" unwindAction="unWindFromDetalheGravarWithSegue:" id="I3Z-8B-u5M"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="txtCidade" destination="JxI-MK-IDS" id="9ku-AE-e8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pea-6a-t6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PJS-sh-IBE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2471" y="107"/>
+            <point key="canvasLocation" x="2469.5999999999999" y="106.59670164917542"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uFz-P7-GM6">
@@ -98,4 +120,7 @@
             <point key="canvasLocation" x="576.79999999999995" y="106.59670164917542"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="df1-R6-VUl"/>
+    </inferredMetricsTieBreakers>
 </document>

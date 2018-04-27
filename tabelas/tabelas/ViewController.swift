@@ -116,14 +116,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    
+    @IBAction func unWindFromDetalheGravar(segue: UIStoryboardSegue) {
+        let details = segue.source as! VCDetalhe
+        let cidade: String = details.txtCidade.text!
+        print(cidade)
+        array.append(cidade)
+        tableView.reloadData()
+    }
     
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let idx = sender as! IndexPath
+        
         if(segue.identifier == "segue1") {
-            
+            let idx = sender as! IndexPath
             let vcdetalhe = (segue.destination as! VCDetalhe)
             vcdetalhe.cidade = array[idx.row]
         }
