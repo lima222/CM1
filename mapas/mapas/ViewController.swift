@@ -10,8 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    
+    var locationManager: CLLocationManager = CLLocationManager()
+    var coordinateInMap: CLLocation!
+    var latestLocation: CLLocation!
 
     @IBOutlet var mapView: MKMapView!
     var geocoder = CLGeocoder()
@@ -31,6 +35,35 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        latestLocation = locations[locations.count - 1]
+        
+        var result = "Latitude: " + String(format: "%.4f", latestLocation.coordinate.latitude)
+        result = result + "Longitude: " + String(format: "%.4f", latestLocation.coordinate.longitude)
+        
+        labelGeo.text = result
+        
+        result = result + " Accu: " + String(format: "%.4f", latestLocation.horizontalAccuracy)
+        print(result)
+    }
+    
+    
+    
+    @IBAction func ondeEstou(_ sender: Any) {
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self as CLLocationManagerDelegate
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    @IBAction func butDistancia(_ sender: Any) {
+        print(coordinateInMap)
+        print(latestLocation)
+        let distanceBetween: CLLocationDistance = latestLocation.distance(from: coordinateInMap)
+        labelGeo.text = String(format: "%.2f", distanceBetween) + " metros"
+    }
+    
     @IBAction func butGeocoding(_ sender: Any) {
         geocoder.geocodeAddressString(textGeo.text!) {
             (placemarks, error) in self.processResponse(withPlacemarks: placemarks, error: error)
@@ -51,8 +84,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
             if let location = location{
                 let coordinate = location.coordinate
                 labelGeo.text="\(coordinate.latitude),\(coordinate.longitude)"
-                centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                )
+                centerMapOnLocation(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
+                coordinateInMap = CLLocation(latitude: coordinate.longitude, longitude: coordinate.longitude)
                 
                 
             } else {
@@ -70,6 +103,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             
         } else {
             if let placemarks  = placemarks, let placemark = placemarks.first{
+                
                 labelGeo.text = "\(placemark.country!) - \(placemark.locality!)  - \(placemark.postalCode!) - \(placemark.name!)"
             }
             else {
@@ -114,7 +148,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
         
         let point = MKPointAnnotation()
-        point.coordinate = CLLocationCoordinate2D(latitude: 41.701497, longitude: -8.834756)
+        point.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         point.title = "Santa Luzia"
         point.subtitle = "Viana do Castelo"
         mapView.addAnnotation(point)
