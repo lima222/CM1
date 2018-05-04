@@ -3,13 +3,13 @@
 "1Jx-XG-aD0.text" = "Olá";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2vt-LO-Gte"; */
-"2vt-LO-Gte.normalTitle" = "Botão";
+"2vt-LO-Gte.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "K1o-jj-04p"; */
 "K1o-jj-04p.text" = "Olá";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "PSW-u6-xm0"; */
-"PSW-u6-xm0.text" = "Nome";
+"PSW-u6-xm0.text" = "Name";
 
 /* Class = "UITextField"; placeholder = "Insert the name of place"; ObjectID = "Z6A-Su-1F1"; */
 "Z6A-Su-1F1.placeholder" = "Insira aqui o local";

@@ -24,8 +24,9 @@
 		8896BBB220878199001F504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8896BBB420878199001F504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		889ABBC9208A2295006F94E4 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Main.strings"; sourceTree = "<group>"; };
-		889ABBCB208A22D3006F94E4 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		889ABBCD208A22D9006F94E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		88C5A48E209A717C004EF576 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		88E47B04209BC57D0097BA32 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +113,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-PT",
 			);
 			mainGroup = 8896BB9C20878198001F504F;
 			productRefGroup = 8896BBA620878199001F504F /* Products */;
@@ -155,6 +157,7 @@
 			children = (
 				8896BBAD20878199001F504F /* Base */,
 				889ABBC9208A2295006F94E4 /* pt-PT */,
+				88C5A48E209A717C004EF576 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -170,8 +173,8 @@
 		889ABBCC208A22D3006F94E4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				889ABBCB208A22D3006F94E4 /* pt-PT */,
 				889ABBCD208A22D9006F94E4 /* Base */,
+				88E47B04209BC57D0097BA32 /* pt-PT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

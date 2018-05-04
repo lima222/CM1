@@ -2,8 +2,8 @@
   Localizable.strings
   appinicial
 
-  Created by DocAdmin on 4/20/18.
+  Created by DocAdmin on 4/24/18.
   Copyright © 2018 ipvc.estg. All rights reserved.
 */
-
+mainvc.mensagem = "Message";
 mainvc.title = "Title";

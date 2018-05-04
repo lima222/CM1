@@ -16,31 +16,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var label1: UILabel!
     
     
-    //actions
-    @IBAction func clickButton1(_ sender: Any) {
+    //MARK: actions
+    @IBAction func clickButton1(_ sender: UIButton) {
         label1.text = "Escreva na caixa de texto"
     }
     
     
     
-    //lifecicle
+    //MARK: lifecicle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        txt1.delegate = self as UITextFieldDelegate
+        
+        NSLog(NSLocalizedString("mainvc.mensagem", comment: ""))
+        
+        
+         txt1.delegate = self as UITextFieldDelegate
         
     }
     
+    //MARK: UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         label1.text = txt1.text
     }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-
-    
 
 
 }

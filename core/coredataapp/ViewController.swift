@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         if let arr = Pais.getAll(appDel: delegate!) {
             for p: Pais in arr {
                 result = result + "," + p.nome!
-                //Pais.delete(nome: p.nome!, appDel: delegate!)
+                Pais.delete(nome: p.nome!, appDel: delegate!)
             }
         }
         lista.text = result
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         if let arr = Cidade.getAll(appDel: delegate!) {
             for c: Cidade in arr {
                 result = result + "," + c.nome!
-                //Cidade.delete(nome: c.nome!, appDel: delegate!)
+                Cidade.delete(nome: c.nome!, appDel: delegate!)
                 if let p: Pais = c.temPais {
                     result = result + "(" + p.nome! + ")"
                 }

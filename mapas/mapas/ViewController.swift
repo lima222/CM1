@@ -16,6 +16,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager: CLLocationManager = CLLocationManager()
     var coordinateInMap: CLLocation!
     var latestLocation: CLLocation!
+    var somePoints = [CLLocationCoordinate2D]()
 
     @IBOutlet var mapView: MKMapView!
     var geocoder = CLGeocoder()
@@ -117,7 +118,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func tapped(_ sender:UITapGestureRecognizer){
-        print("tapped")
+        let touchLocation = sender.location(in: mapView)
+        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+        let newCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationCoordinate.latitude, locationCoordinate.longitude)
+        
+        somePoints.append(newCoord)
+        if(somePoints.count == 4) {
+            addBoundry()
+        }
+    }
+    
+    func addBoundry() {
+        let polygon = MKPolygon(coordinates: &somePoints, count: somePoints.count)
+        mapView.add(polygon)
     }
     
     func longPressed(_ sender: UILongPressGestureRecognizer){
@@ -137,6 +150,37 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
              
              }
             
+            calculateRota(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+            
+        }
+    }
+    
+    func calculateRota(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), addressDictionary: nil))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latestLocation.coordinate.latitude, longitude: latestLocation.coordinate.longitude), addressDictionary: nil))
+        request.requestsAlternateRoutes = false
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculate(completionHandler: {(response, error) in
+            if error != nil {
+                print("error getting information" + error.debugDescription)
+            } else {
+                self.showRoute(response!)
+            }
+        })
+    }
+    
+    func showRoute(_ response: MKDirectionsResponse) {
+        
+        for route in response.routes {
+            mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+            
+            for step in route.steps {
+                print(step.instructions)
+            }
+                
         }
     }
         
@@ -152,6 +196,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         point.title = "Santa Luzia"
         point.subtitle = "Viana do Castelo"
         mapView.addAnnotation(point)
+        
+        mapView.add(MKCircle(center: point.coordinate, radius: 200))
         
     }
     @IBAction func clickSegControl(_ sender: UISegmentedControl) {
@@ -169,6 +215,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             mapView.mapType = .hybrid
         }
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        if let overlay = overlay as? MKCircle {
+            let circleRenderer = MKCircleRenderer(circle: overlay)
+            circleRenderer.fillColor = UIColor.lightGray
+            return circleRenderer
+        }
+        
+        if overlay is MKPolygon {
+            let polygnonView = MKPolygonRenderer(overlay: overlay)
+            polygnonView.strokeColor = UIColor.magenta
+            return polygnonView
+        }
+        
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 5.0
+        return renderer
+    }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control : UIControl ) {
         if control == view.rightCalloutAccessoryView{
             print(view.annotation!.title!!)
